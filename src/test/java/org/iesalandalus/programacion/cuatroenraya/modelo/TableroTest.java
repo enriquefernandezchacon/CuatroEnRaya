@@ -44,11 +44,11 @@ public class TableroTest {
 	}
 	
 	@Test
-	public void estaLlenoCompruebaCorrectamente() {
+	public void estaLlenoCompruebaCorrectamente() throws OperationNotSupportedException {
 		Tablero tablero = new Tablero();
 		assertThat(TABLERO_NO_DEBERIA_ESTAR_LLENO, tablero.estaLleno(), is(false));
 		try {
-			for (int columna = 0; columna < Tablero.COLUMNAS; columna++) {
+			for (int columna = 0; columna < 7; columna++) {
 				llenarColumna(tablero, columna, Ficha.AZUL);
 			}
 			assertThat(TABLERO_DEBERIA_ESTAR_LLENO, tablero.estaLleno(), is(true));
@@ -58,7 +58,7 @@ public class TableroTest {
 	}
 	
 	private void llenarColumna(Tablero tablero, int columna, Ficha ficha) throws OperationNotSupportedException {
-		for (int veces = 0; veces < Tablero.FILAS; veces++) {
+		for (int veces = 0; veces < 6; veces++) {
 			tablero.introducirFicha(columna, ficha);
 		}
 	}
