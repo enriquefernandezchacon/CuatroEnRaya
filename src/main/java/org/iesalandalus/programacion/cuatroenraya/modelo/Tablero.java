@@ -113,19 +113,15 @@ public class Tablero {
 		boolean victoria = false;
 		if(comprobarHorizontal(fila, ficha)) {
 			victoria = true;
-			System.out.println("Victoria Horizontal:"+victoria);
 		}
 		if(comprobarVertical(columna, ficha)) {
 			victoria = true;
-			System.out.println("Victoria Vertical:"+victoria);
 		}
 		if(comprobarDiagonalNE(fila, columna, ficha)) {
 			victoria = true;
-			System.out.println("Victoria NE:"+victoria);
 		}
 		if(comprobarDiagonalNO(fila, columna, ficha)) {
 			victoria = true;
-			System.out.println("Victoria NO:"+victoria);
 		}
 		return victoria;
 	}
@@ -176,18 +172,6 @@ public class Tablero {
 		int desplazamientoInicial = menor(fila, columna);
 		int filaInicial = fila - desplazamientoInicial;
 		int columnaInicial = columna - desplazamientoInicial;
-		/*for (int i = filaInicial; i < FILAS; i++) {
-			for (int j = columnaInicial; j < COLUMNAS; j++) {
-				if (casillas[i][j].getFicha() == ficha) {
-					contador++;
-					if (objetivoAlcanzado(contador)) {
-						victoria = true;
-					} 
-				} else {
-					contador = 0;
-				}
-			}
-		}*/
 		while (filaInicial < FILAS && columnaInicial < COLUMNAS) {
 			if(casillas[filaInicial][columnaInicial].getFicha()==ficha) {
 				contador++;
@@ -211,18 +195,6 @@ public class Tablero {
 		int desplazamientoInicial = menor(fila, COLUMNAS-1-columna);
 		int filaInicial = fila - desplazamientoInicial;
 		int columnaInicial = columna + desplazamientoInicial;
-		/*for (int i = filaInicial; i < FILAS; i++) {
-			for (int j = columnaInicial; j >= 0; j--) {
-				if (casillas[i][j].getFicha() == ficha) {
-					contador++;
-					if (objetivoAlcanzado(contador)) {
-						victoria = true;
-					} 
-				} else {
-					contador = 0;
-				}
-			}
-		}*/
 		while (filaInicial < FILAS && columnaInicial >= 0) {
 			if(casillas[filaInicial][columnaInicial].getFicha()==ficha) {
 				contador++;
