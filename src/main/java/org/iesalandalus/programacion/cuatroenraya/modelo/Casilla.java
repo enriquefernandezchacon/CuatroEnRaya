@@ -21,27 +21,20 @@ public class Casilla {
 	}
 
 	public void setFicha(Ficha ficha) throws OperationNotSupportedException {
-		if (estaOcupada() == false) {
+		
 			if (ficha == null) {
 				throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
-			} else if (ficha == Ficha.VERDE) {
-				this.ficha = Ficha.VERDE;
-			} else if (ficha == Ficha.AZUL) {
-				this.ficha = Ficha.AZUL;
-			} else {
-				throw new IllegalArgumentException("ERROR: Color incorrecto");
 			}
-		} else {
-			throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
-		}
+			if (estaOcupada()) {
+				throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
+			}
+			
+			this.ficha = ficha;
+		
 	}
-
+		
 	public boolean estaOcupada() {
-		boolean casillaOcupada = false;
-		if (this.ficha == Ficha.AZUL || this.ficha == Ficha.VERDE) {
-			casillaOcupada = true;
-		}
-		return casillaOcupada;
+		return ficha != null;
 	}
 
 	@Override

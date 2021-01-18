@@ -16,20 +16,23 @@ public class Consola {
 	public static String leerNombre() {
 		String nombre;
 		do {
-			System.out.println("INTRODUZCA EL NOMBRE DEL JUGADOR:");
+			System.out.print("\nINTRODUZCA EL NOMBRE DEL JUGADOR:");
 			nombre = Entrada.cadena();
-		} while (nombre.matches("\\s+") && nombre.matches(""));
+		} while (nombre.matches("\\s+") || nombre.matches(""));
+
 		return nombre;
 	}
 	
 	public static Ficha elegirColorFicha() {
 		int eleccion;
 		do {
-			System.out.println("INTRODUZCA EL COLOR DE LA FICHA DESEADA");
+			System.out.println("\nINTRODUZCA EL COLOR DE LA FICHA DESEADA:\n");
 			System.out.println("1 - AZUL");
 			System.out.println("2 - VERDE");
+			System.out.print("\nCOLOR ELEGIDO: ");
 			eleccion = Entrada.entero();
 		} while (eleccion != 1 && eleccion != 2);
+		System.out.println();
 		Ficha colorFicha;
 		if (eleccion == 1) {
 			colorFicha = Ficha.AZUL;

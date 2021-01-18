@@ -35,6 +35,8 @@ public class CuatroEnRaya {
 				victoriaJugadorDos = tirar(jugador[1]);
 			}
 		}
+		System.out.println("\n");
+		System.out.println(tablero.toString());
 		if (victoriaJugadorUno) {
 			System.out.println("FELICIDADES "+jugador[0].getNombre()+", ¡HAS GANADO!");
 		} else if (victoriaJugadorDos) {
